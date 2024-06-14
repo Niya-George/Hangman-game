@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Hangman.MainPage">
+
+    <Grid RowDefinitions=".6*,.4*">
+        <VerticalStackLayout Spacing="30">
+            <Label Text="{Binding GameStatus}" HorizontalTextAlignment="Center" />
+            <Image Source="{Binding CurrentImage}" MaximumHeightRequest="180"/>
+            <Label Text="{Binding Spotlight}" HorizontalTextAlignment="Center"  />
+            <Label Text="{Binding Message}" HorizontalTextAlignment="Center"  />
+            <Button Text="Reset" HorizontalOptions="Center" Clicked="Reset_Button"/>
+        </VerticalStackLayout>
+        <FlexLayout x:Name="Container" Grid.Row="1" JustifyContent="SpaceEvenly" Wrap="Wrap" BindableLayout.ItemsSource="{Binding Letters} ">
+            <BindableLayout.ItemTemplate>
+                <DataTemplate>
+                    <Button Text="{Binding .}" HeightRequest="50" WidthRequest="60" Clicked="Button_Clicked"/>
+                </DataTemplate>
+            </BindableLayout.ItemTemplate>
+        </FlexLayout>
+    </Grid>
+
+</ContentPage>
