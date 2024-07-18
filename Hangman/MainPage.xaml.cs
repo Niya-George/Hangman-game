@@ -88,9 +88,9 @@ namespace Hangman
             CalculateWord(answer, guessed);
         }
 
-        private void PickWord()  //random word selected from list
+        private void PickWord()  
         {
-            //throw new NotImplementedException();
+          
             answer = words[new Random().Next(words.Count)];
             Debug.WriteLine(answer);
 
